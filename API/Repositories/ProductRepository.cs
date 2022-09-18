@@ -85,11 +85,11 @@ namespace Application.Repositories
             }
         }
         
-        public ProductModel GetProductByName(string name)
+        public List<ProductModel> GetProductByName(string name)
         {
             try
             {
-                ProductModel product = _applicationDb.Tb_Product.Where(el => el.Name == name).FirstOrDefault()!;
+                List<ProductModel> product = _applicationDb.Tb_Product.Where(el => el.Name.Contains(name)).ToList()!;
 
                 return product;
             } catch (Exception)
@@ -106,6 +106,6 @@ namespace Application.Repositories
         bool DeleteProduct(int id);
         List<ProductModel> GetAllProducts();
         ProductModel GetProductById(int id);
-        ProductModel GetProductByName(string name);
+        List<ProductModel> GetProductByName(string name);
     }
 }

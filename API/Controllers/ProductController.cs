@@ -94,7 +94,7 @@ namespace Application.Controllers
         }
         
         [HttpGet("{name}")]
-        public ActionResult<ProductModel> GetProductByName(string name)
+        public ActionResult<List<ProductModel>> GetProductByName(string name)
         {
             try
             {
