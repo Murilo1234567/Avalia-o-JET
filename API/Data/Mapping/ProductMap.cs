@@ -50,7 +50,7 @@ namespace Data.Mapping
                 .HasColumnName("Price")
                 .HasColumnType("numeric(10, 2)");
             
-            builder.Property(prop => prop.Price)
+            builder.Property(prop => prop.New_Price)
                 .IsRequired()
                 .HasColumnName("New_Price")
                 .HasColumnType("numeric(10, 2)");
