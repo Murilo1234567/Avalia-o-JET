@@ -28,7 +28,7 @@ namespace Application
             service.AddControllers();
 
             /*-------------------------------- DBCONTEXT --------------------------------*/
-            string connectionString = "Server=localhost;Port=5432;User Id=postgres;Password=senha123;Database=localhost";
+            string connectionString = "Server=localhost;Port=5432;User Id=postgres;Password=senha123;Database=postgres";
             service.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(connectionString));
 
         }

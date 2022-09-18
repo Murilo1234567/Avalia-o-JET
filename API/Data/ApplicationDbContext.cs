@@ -1,3 +1,5 @@
+using Application.Models;
+using Data.Mapping;
 using Microsoft.EntityFrameworkCore;
 
 namespace Application.Context
@@ -12,9 +14,13 @@ namespace Application.Context
         {
         }
 
+        public DbSet<ProductModel> Tb_Product => Set<ProductModel>();
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<ProductModel>(new ProductMap().Configure);
         }
     }
 }
