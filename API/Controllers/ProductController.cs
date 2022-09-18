@@ -23,7 +23,7 @@ namespace Application.Controllers
         }
 
         [HttpPost]
-        public ActionResult<bool> InsertFaq([FromBody] ProductModel product)
+        public ActionResult<bool> InsertProduct([FromBody] ProductModel product)
         {
             try
             {
@@ -39,7 +39,7 @@ namespace Application.Controllers
         }
 
         [HttpPut]
-        public ActionResult<bool> UpdateFaq([FromBody] ProductModel product)
+        public ActionResult<bool> UpdateProduct([FromBody] ProductModel product)
         {
             try
             {
@@ -55,7 +55,7 @@ namespace Application.Controllers
         }
 
         [HttpDelete("{id}")]
-        public ActionResult<bool> DeleteFaq(int id)
+        public ActionResult<bool> DeleteProduct(int id)
         {
             try
             {
