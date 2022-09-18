@@ -92,5 +92,18 @@ namespace Application.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        
+        [HttpGet("{name}")]
+        public ActionResult<ProductModel> GetProductByName(string name)
+        {
+            try
+            {
+                return _productRepository.GetProductByName(name);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

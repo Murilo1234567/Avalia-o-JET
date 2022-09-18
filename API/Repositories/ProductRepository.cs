@@ -84,6 +84,19 @@ namespace Application.Repositories
                 throw;
             }
         }
+        
+        public ProductModel GetProductByName(string name)
+        {
+            try
+            {
+                ProductModel product = _applicationDb.Tb_Product.Where(el => el.Name == name).FirstOrDefault()!;
+
+                return product;
+            } catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 
     public interface IProductRepository
@@ -93,5 +106,6 @@ namespace Application.Repositories
         bool DeleteProduct(int id);
         List<ProductModel> GetAllProducts();
         ProductModel GetProductById(int id);
+        ProductModel GetProductByName(string name);
     }
 }
