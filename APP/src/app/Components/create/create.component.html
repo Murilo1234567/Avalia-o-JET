@@ -49,20 +49,20 @@
     </form>
     <div class="end-buttons">
       <button class="cancel" (click)="CancelCreate()">Cancelar Produto</button>
-      <button [routerLink]="'products'">Todos os Produtos</button>
+      <button [routerLink]="'produtos'">Todos os Produtos</button>
       <button class="select" (click)="InsertProduct()">Criar Produto</button>
     </div>
     <span class="error" *ngIf="errorMessage">Preencha todos os<br> campos do formulário</span>
   </div>
 
-  <p-dialog [(visible)]="showDialog" [showHeader]="false">
-    <div class="confirmation-card">
-      <div class="dialog-text">
-        <span>Produto criado com sucesso!</span>
-      </div>
-      <div class="dialog-buttons">
-        <button class="cancel" (click)="showDialog = false">Criar outro Produto</button>
-        <button [routerLink]="'products'">Todos os Produtos</button>
-      </div>
+<p-dialog [(visible)]="showDialog" [showHeader]="false">
+  <div class="confirmation-card">
+    <div class="dialog-text">
+      <span>Produto criado com sucesso!</span>
     </div>
-  </p-dialog>
+    <div class="dialog-buttons">
+      <button class="cancel" (click)="showDialog = false">Criar outro Produto</button>
+      <button [routerLink]="'products'">Todos os Produtos</button>
+    </div>
+  </div>
+</p-dialog>
