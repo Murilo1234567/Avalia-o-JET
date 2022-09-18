@@ -85,7 +85,7 @@ namespace Application.Repositories
             }
         }
         
-        public List<ProductModel> GetProductByName(string name)
+        public List<ProductModel> GetProductsByName(string name)
         {
             try
             {
