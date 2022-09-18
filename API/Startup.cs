@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Authentication.Certificate;
 using Application.Context;
+using Application.Repositories;
 
 namespace Application
 {
@@ -31,6 +32,7 @@ namespace Application
             string connectionString = "Server=localhost;Port=5432;User Id=postgres;Password=senha123;Database=postgres";
             service.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(connectionString));
 
+            service.AddScoped<IProductRepository, ProductRepository>();
         }
 
         public static void Configure(IApplicationBuilder app, IHostEnvironment env)
