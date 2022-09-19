@@ -97,7 +97,7 @@ namespace Application.Repositories
         {
             try
             {
-                List<ProductModel> product = _applicationDb.Tb_Product.Where(el => el.Name.Contains(name)).ToList()!;
+                List<ProductModel> product = _applicationDb.Tb_Product.Where(el => el.Name!.ToLower().Contains(name.ToLower())).ToList();
 
                 return product;
             } catch (Exception)
