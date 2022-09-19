@@ -1,0 +1,124 @@
+<h2 class="go-store">Clique <a [routerLink]="'loja'">aqui</a> para ver como está sua loja</h2>
+<div class="get-card">
+  <div class="filter">
+    <input placeholder="Digite o nome do produto" class="filter-control" [(ngModel)]="filterName">
+    <button class="filter-button" (click)="GetProductsByName()">Buscar</button>
+  </div>
+  <p-table #dt styleClass="default_table" [columns]="colDefs" [autoLayout]="true" [resizableColumns]="true" [value]="products" dataKey="_id" [responsive]="true" csvSeparator=";" [paginator]="true" [rows]="10">
+    <ng-template pTemplate="caption">
+        <div class="cntHeader">
+          <h3>Listagem de Produtos</h3>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field" pResizableColumn [ngStyle]="col.style">
+                <span translate>{{col.header}}</span>
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns" let-rowIndex="rowIndex">
+        <tr>
+          <td *ngFor="let col of columns" class="p-resizable-column" [class.actions]="col.field ==='actions'">
+            <div [ngSwitch]="col.field">
+              <div class="item-table" *ngSwitchCase="'actions'">
+                <i class="fas fa-check-circle update" (click)="ShowDialogUpdate(rowData)" [pTooltip]="'Alerar Produto'" tooltipStyleClass="custom-tooltip-top-bottom" tooltipPosition="top"></i>
+                <i class="far fa-times-circle delete" (click)="ShowDialogDelete(rowData)" [pTooltip]="'Deletar Produto'" tooltipStyleClass="custom-tooltip-top-bottom" tooltipPosition="top"></i>
+              </div>
+              <div class="item-table name" *ngSwitchCase="'name'">
+                <img [src]="rowData['image']">
+                {{rowData[col.field] || 'N/I'}}
+              </div>
+              <div class="item-table" *ngSwitchCase="'price'">
+                R$ {{rowData[col.field] || 'N/I'}}
+              </div>
+              <div class="item-table" *ngSwitchCase="'new_Price'">
+                R$ {{rowData[col.field] || 'N/I'}}
+              </div>
+              <div class="item-table" *ngSwitchCase="'status'">
+                <i *ngIf="rowData[col.field] == true" class="fas fa-solid fa-eye"></i>
+                <i *ngIf="rowData[col.field] == false" class="fas fa-solid fa-eye-slash"></i>
+              </div>
+              <div class="item-table" *ngSwitchDefault>
+                  {{rowData[col.field] || 'N/I'}}
+              </div>
+            </div>
+          </td>
+        </tr>
+    </ng-template>
+  </p-table>
+  <div class="go-back">
+    <button [routerLink]="''">Cadastrar novo Produto</button>
+  </div>
+</div>
+
+<p-dialog [(visible)]="showDialogDelete" [showHeader]="false">
+  <div class="confirmation-card">
+    <div class="dialog-text">
+      <span>Tem certeza de que quer deletar este produto ?</span>
+    </div>
+    <div class="dialog-buttons">
+      <button class="cancel" (click)="showDialogDelete = false">Não, cancelar</button>
+      <button (click)="DeleteProduct()">Tenho certeza</button>
+    </div>
+  </div>
+</p-dialog>
+
+<p-dialog [(visible)]="showDialogUpdate" header="Update Dialog" [modal]="true" (dismissableMask)="true">
+  <div class="update-card">
+      <form [formGroup]="productForm">
+          <div class="full-form">
+            <div class="informations">
+              <h2>Informações Principais</h2>
+              <div class="form-group switch">
+                <label style="margin-right: 10px;" for="name" class="form-label">Status</label>
+                <p-inputSwitch formControlName="status" binary></p-inputSwitch>
+              </div>
+              <div class="form-group">
+                <label for="name" class="form-label">Nome do Produto</label>
+                <input id="name" class="form-control" type="text" formControlName="name" maxlength="150">
+              </div>
+              <div class="form-group big">
+                <div class="form-group small">
+                  <label for="stock" class="form-label">Estoque</label>
+                  <input id="stock" class="form-control" type="number" formControlName="stock" [min]="0" [max]="100">
+                </div>
+                <div class="form-group small">
+                  <label for="price" class="form-label">Preço</label>
+                  <input id="price" class="form-control" type="number" formControlName="price" [step]="0.25" [min]="0" [max]="50">
+                </div>
+                <div class="form-group small">
+                  <label for="price" class="form-label">Preço Promocional</label>
+                  <input id="price" class="form-control" type="number" formControlName="new_Price" [step]="0.25" [min]="0" [max]="50">
+                </div>
+              </div>
+              <h2>Informações Adicionais</h2>
+              <div class="form-group">
+                <label for="desc" class="form-label">Descrição do Produto</label>
+                <textarea id="desc" class="form-control area" (onchange)="productForm.get('desc')?.setValue(productForm.get('desc'))" formControlName="description"></textarea>
+              </div>
+            </div>
+            <div class="informations">
+              <h2>Imagem</h2>
+              <div class="form-group">
+                <label for="image" class="form-label">Imagem do Produto</label>
+                <div class="image-button" *ngIf="productForm.get('image')?.value != ''">
+                  <img [src]="productForm.get('image')?.value">
+                </div>
+                <input placeholder="Put the url of the image" *ngIf="productForm.get('image')?.value == ''" id="image" class="form-control" type="text" [(ngModel)]="imageUrl" [ngModelOptions]="{standalone: true}">
+                <div class="buttons">
+                  <button (click)="ChangeImageUrl(false)">Retirar URL</button>
+                  <button class="select" (click)="ChangeImageUrl(true)">Selecionar URL</button>
+                </div>
+              </div>
+            </div>
+          </div>
+      </form>
+      <div class="end-buttons">
+          <button class="cancel" (click)="showDialogUpdate = false">Cancelar Atualização</button>
+          <button class="select" (click)="UpdateProduct()">Atualizar Produto</button>
+      </div>
+      <span class="error" *ngIf="errorMessage">Preencha todos os <br> campos do formulário.</span>
+  </div>
+</p-dialog>

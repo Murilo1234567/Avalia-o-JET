@@ -8,13 +8,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DialogModule } from 'primeng/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CreateComponent } from './create/create.component';
+import { CreateComponent } from './Components/create/create.component';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import { ProductsComponent } from './Components/products/products.component';
+import { TableModule } from 'primeng/table';
+import { TooltipModule } from 'primeng/tooltip';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreateComponent
+    CreateComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,9 @@ import { InputSwitchModule } from 'primeng/inputswitch';
     RouterModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    TableModule,
+    TooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

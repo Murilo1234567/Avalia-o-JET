@@ -1,0 +1,259 @@
+@import url('https://use.fontawesome.com/releases/v5.11.2/css/all.css');
+
+.go-store {
+    text-align: center;
+    margin: 80px 0 -105px 85px;
+    a {
+        text-decoration: none;
+    }
+}
+
+.get-card {
+    padding: 30px;
+    width: fit-content;
+    margin-left: 23%;
+    margin-top: 5%;
+    height: fit-content;
+    .filter {
+        margin-bottom: 40px;
+        padding: 20px;
+        background: white;
+        height: 90px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        .filter-control {
+            padding: 10px;
+            border-radius: 6px;
+            border: none;
+            background-color: #e5f4ff;
+            margin-right: 10px;
+            width: 350px;
+            height: 45px;
+        }
+        button {
+            border: none;
+            padding: 14px;
+            border-radius: 6px;
+            width: 100px;
+            text-transform: uppercase;
+            background-color: #007ad9;
+            color: white;
+            cursor: pointer;
+        }
+    }
+    
+    .go-back {
+        background-color: white;
+        padding: 10px;
+        text-align: right;
+        margin-top: 30px;
+        border-radius: 6px;
+        button {
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgb(25, 206, 25);
+            cursor: pointer;
+        }
+    }
+}
+
+.item-table {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    font-weight: 700;
+    &.name {
+        justify-content: flex-start;
+    }
+    img {
+        max-width: 100px;
+        margin-right: 20px;
+    }
+    i {
+        color: rgb(106, 106, 255);
+        &.update {
+            cursor: pointer;
+            color: rgb(25, 206, 25);
+        }
+        &.delete {
+            cursor: pointer;
+            color: rgb(243, 85, 85);
+        }
+    }
+}
+
+.full-form {
+    display: flex;
+    justify-content: center;
+    .informations {
+        padding: 0 50px;
+        &:last-child {
+            border-left: 2px solid rgb(245, 245, 245);
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 10px 0;
+            &.switch {
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+            }
+            &.big {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            &.small {
+                width: 140px;
+                margin-right: 15px;
+            }
+            .form-control {
+                border: none;
+                margin-top: 10px;
+                border-radius: 5px;
+                background-color: rgb(245, 245, 245);
+                height: 40px;
+                font-size: 20px;
+                padding: 5px;
+                max-width: 426px;
+                &.area {
+                    height: 150px;
+                    overflow-y: scroll;
+                }
+            }
+            .image-button {
+                background-color: rgb(245, 245, 245);
+                width: fit-content;
+                height: fit-content;
+                border-radius: 5px;
+                margin-top: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img {
+                    max-width: 300px;
+                    max-height: 230px;
+                }
+            }
+            .buttons {
+                width: 300px;
+                display: flex;
+                align-self: center;
+                justify-content: space-between;
+                margin-top: 10px;
+                button {
+                    border: none;
+                    border-radius: 5px;
+                    padding: 10px;
+                    cursor: pointer;
+                    background-color: rgb(243, 85, 85);
+                    &.select {
+                        background-color: rgb(25, 206, 25);
+                    }
+                }
+            }
+        }
+    }
+}
+.end-buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 41%;
+    float: right;
+    margin-top: -45px;
+    button {
+        z-index: 1;
+        border: none;
+        border-radius: 5px;
+        padding: 13px;
+        cursor: pointer;
+        &.cancel {
+            background-color: rgb(243, 85, 85);
+        }
+        &.select {
+            background-color: rgb(25, 206, 25);
+        }
+    }
+}
+.error {
+    font-size: 12px;
+    color: #f35555;
+    text-align: center;
+    float: right;
+    margin-right: 30px;
+}
+
+.confirmation-card {
+    padding: 30px;
+    .dialog-text {
+        text-align: center;
+        font-size: 22px;
+    }
+    .dialog-buttons {
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+        button {
+            border: none;
+            border-radius: 5px;
+            padding: 13px;
+            margin: 0 10px;
+            cursor: pointer;
+            background-color: rgb(25, 206, 25);
+            &.cancel {
+                background-color: rgb(243, 85, 85);
+            }
+        }
+    }
+}
+
+::ng-deep {
+    .p-dialog {
+        .p-dialog-content {
+            max-height: 85vh;
+            overflow: auto;
+            width: 100%;
+        }
+    }
+
+    .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider:before {
+        background-color: white;
+    }
+
+    .p-datatable-resizable>.p-datatable-wrapper {
+        padding-left: 28px !important;
+    }
+
+    .p-paginator {
+        background-color: white !important;
+        border: none !important;
+        .p-paginator-first {
+            color: rgb(161 139 139) !important;
+        }
+    }
+
+    .p-datatable {
+        background-color: white;
+        .p-sortable-column .p-sortable-column-icon {
+            color: rgb(161 139 139);
+        }
+        .p-datatable-header {
+            background-color: white !important;
+            border: none !important;
+            padding-left: 40px !important;
+        }
+        .p-datatable-thead > tr > th {
+            background-color: white !important;
+            border: none !important;
+            border-bottom: 1px solid rgb(161 139 139) !important;
+            color: rgb(161 139 139) !important;
+        }
+        .p-datatable-tbody > tr > td {
+            border: none !important;
+        }
+    }
+}
