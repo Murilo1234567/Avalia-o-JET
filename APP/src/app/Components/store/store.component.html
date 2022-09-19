@@ -1,0 +1,24 @@
+<h2 class="go-store">Clique <a [routerLink]="'/produtos'">aqui</a> para voltar a listagem de produtos</h2>
+<div class="store">
+    <div class="store-card" *ngFor="let item of products">
+        <a [routerLink]="item.id">
+            <div class="product-card">
+                <img [src]="item.image">
+                <div class="product-information">
+                    <span>{{item.name}}</span>
+                </div>
+                <div class="product-stars">
+                    <i class="fas fa-solid fa-star yellow"></i>
+                    <i class="fas fa-solid fa-star yellow"></i>
+                    <i class="fas fa-solid fa-star yellow"></i>
+                    <i class="fas fa-solid fa-star"></i>
+                    <i class="fas fa-solid fa-star"></i>
+                </div>
+                <div class="product-price">
+                    <span class="price">R$ {{item.price}}</span>
+                    <span class="price new">R$ {{item.new_Price}}</span>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>

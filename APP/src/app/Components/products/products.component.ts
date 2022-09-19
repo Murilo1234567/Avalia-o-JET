@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
@@ -76,7 +75,7 @@ export class ProductsComponent implements OnInit {
     }
   ];
 
-  constructor(private _httpClient: HttpClient, private _router: Router) {}
+  constructor(private _httpClient: HttpClient) {}
 
   ngOnInit() {
     this.GetAllProducts();

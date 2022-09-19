@@ -13,12 +13,14 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { ProductsComponent } from './Components/products/products.component';
 import { TableModule } from 'primeng/table';
 import { TooltipModule } from 'primeng/tooltip';
+import { StoreComponent } from './Components/store/store.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateComponent,
-    ProductsComponent
+    ProductsComponent,
+    StoreComponent
   ],
   imports: [
     BrowserModule,
