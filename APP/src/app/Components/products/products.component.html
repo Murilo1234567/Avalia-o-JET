@@ -4,7 +4,7 @@
     <input placeholder="Digite o nome do produto" class="filter-control" [(ngModel)]="filterName">
     <button class="filter-button" (click)="GetProductsByName()">Buscar</button>
   </div>
-  <p-table #dt styleClass="default_table" [columns]="colDefs" [autoLayout]="true" [resizableColumns]="true" [value]="products" dataKey="_id" [responsive]="true" csvSeparator=";" [paginator]="true" [rows]="10">
+  <p-table #dt styleClass="default_table" [columns]="colDefs" [autoLayout]="true" [resizableColumns]="true" [value]="products" dataKey="_id" [responsive]="true" csvSeparator=";" [paginator]="true" [rows]="5">
     <ng-template pTemplate="caption">
         <div class="cntHeader">
           <h3>Listagem de Produtos</h3>
