@@ -106,6 +106,6 @@ namespace Application.Repositories
         bool DeleteProduct(int id);
         List<ProductModel> GetAllProducts();
         ProductModel GetProductById(int id);
-        List<ProductModel> GetProductByName(string name);
+        List<ProductModel> GetProductsByName(string name);
     }
 }

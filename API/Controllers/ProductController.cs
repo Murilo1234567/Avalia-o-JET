@@ -98,7 +98,7 @@ namespace Application.Controllers
         {
             try
             {
-                return _productRepository.GetProductByName(name);
+                return _productRepository.GetProductsByName(name);
             }
             catch (Exception ex)
             {
