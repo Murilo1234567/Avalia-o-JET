@@ -1,5 +1,6 @@
 using Application.Context;
 using Application.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Repositories
 {
@@ -33,9 +34,16 @@ namespace Application.Repositories
                 ProductModel? productUpdate = _applicationDb.Tb_Product.Where(el => el.Id == product.Id).FirstOrDefault();
                 if (productUpdate != null)
                 {
-                    productUpdate = product;
-                    _applicationDb.SaveChanges();
+                    productUpdate.Id = product.Id;
+                    productUpdate.Name = product.Name;
+                    productUpdate.Image = product.Image;
+                    productUpdate.Description = product.Description;
+                    productUpdate.Stock = product.Stock;
+                    productUpdate.Status = product.Status;
+                    productUpdate.Price = product.Price;
+                    productUpdate.New_Price = product.New_Price;
                 }
+                _applicationDb.SaveChanges();
 
                 return true;
             } catch (Exception)

@@ -94,11 +94,11 @@ namespace Application.Controllers
         }
         
         [HttpGet("{name}")]
-        public ActionResult<List<ProductModel>> GetProductsByName(string name)
+        public ActionResult<List<ProductModel>> GetProductsByName(string? name)
         {
             try
             {
-                return _productRepository.GetProductsByName(name);
+                return name == "null" ? _productRepository.GetAllProducts() : _productRepository.GetProductsByName(name!);
             }
             catch (Exception ex)
             {

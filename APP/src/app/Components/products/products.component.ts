@@ -16,7 +16,7 @@ export class ProductsComponent implements OnInit {
   public showDialogUpdate = false;
   public errorMessage = false;
   public products: any = [];
-  public filterName = '';
+  public filterName: any = '';
   public filtered = false;
   public productForm = new UntypedFormGroup({
     id: new UntypedFormControl(
@@ -89,10 +89,11 @@ export class ProductsComponent implements OnInit {
         this.products = response;
         this.filtered = false;
       }
-    );
-  }
-
-  GetProductsByName() {
+      );
+    }
+    
+    GetProductsByName() {
+    this.filterName = this.filterName == '' ? null : this.filterName
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     this._httpClient.get<any[]>('http://localhost:5000/api/Product/GetProductsByName/' + this.filterName, {headers}).pipe(takeUntil(this.ngUnsubscribe)).subscribe(
       (response: any) => {
@@ -140,7 +141,7 @@ export class ProductsComponent implements OnInit {
 
   ShowDialogUpdate(rowData: any) {
     this.productForm.patchValue(rowData);
-    console.log(this.productForm.value)
+    this.imageUrl = rowData.image;
     this.showDialogUpdate = true;
   }
 
