@@ -14,13 +14,15 @@ import { ProductsComponent } from './Components/products/products.component';
 import { TableModule } from 'primeng/table';
 import { TooltipModule } from 'primeng/tooltip';
 import { StoreComponent } from './Components/store/store.component';
+import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateComponent,
     ProductsComponent,
-    StoreComponent
+    StoreComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,

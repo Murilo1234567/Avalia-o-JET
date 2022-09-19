@@ -1,0 +1,26 @@
+<div class="details-card">
+    <div class="details">
+        <div class="informations">
+            <img [src]="productDetails.image">
+        </div>
+        <div class="informations">
+            <h1 style="font-size: 30px;">{{productDetails.name}}</h1>
+            <span class="price">R$ {{productDetails.price}}</span>
+            <span class="price new">R$ {{productDetails.new_Price}}</span>
+            <div class="details-title">Details:</div>
+            <div class="details-text">
+                <span class="details">{{productDetails.description}}</span>
+            </div>
+            <div class="last-details">
+                <div class="stock">
+                    <i (click)="UpdateProduct(false)" class="fas fa-solid fa-plus"></i>
+                    <span>{{productDetails.stock}}</span>
+                    <i (click)="UpdateProduct(true)" class="fas fa-solid fa-minus"></i>
+                </div>
+                <div class="cart-button">
+                    <button>Adicionar ao carrinho</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+@import url('https://use.fontawesome.com/releases/v5.11.2/css/all.css');
+
+.details-card {
+    background-color: white;
+    padding: 30px;
+    width: fit-content;
+    max-width: 1012px;
+    margin-left: 23%;
+    margin-top: 9%;
+    height: fit-content;
+    .details {
+        display: flex;
+        align-items: center;
+        .informations {
+            padding: 0 10px;
+            img {
+                max-width: 600px;
+            }
+            .price {
+                font-weight: 700;
+                font-size: 20px;
+                padding: 0 10px;
+                &.new {
+                    text-decoration: line-through;
+                    font-weight: 500;
+                    font-size: 17px;
+                }
+            }
+            .details-title {
+                margin-top: 25px;
+                border-bottom: 2px solid rgb(245, 245, 245);;
+            }
+            .details-text {
+                margin-top: 10px;
+                margin-bottom: 50px;
+                max-height: 150px;
+                overflow-y: scroll;
+            }
+            .last-details {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-around;
+                .stock {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    border-radius: 5px;
+                    width: 120px;
+                    background-color: rgb(245, 245, 245);
+                    padding: 10px;
+                    i {
+                        background-color: white;
+                        border-radius: 50%;
+                        padding: 5px;
+                        cursor: pointer;
+                    }
+                }
+                .cart-button {
+                    button {
+                        width: fit-content;
+                        text-transform: uppercase;
+                        background-color: #007ad9;
+                        color: white;
+                        border: none;
+                        padding: 15px;
+                        border-radius: 25px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
