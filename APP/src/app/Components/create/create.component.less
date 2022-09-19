@@ -10,10 +10,8 @@
         justify-content: center;
         .informations {
             padding: 0 50px;
-            width: 451px;
             &:last-child {
                 border-left: 2px solid rgb(245, 245, 245);
-                width: 300px;
             }
             .form-group {
                 display: flex;
@@ -41,7 +39,7 @@
                     height: 40px;
                     font-size: 20px;
                     padding: 5px;
-                    max-width: 426px;
+                    max-width: 450px;
                     &.area {
                         height: 150px;
                         overflow-y: scroll;
@@ -102,10 +100,9 @@
         }
     }
     .error {
-        font-size: 12px;
+        font-size: 10px;
         color: rgb(243, 85, 85);
         text-align: center;
-        margin-right: 10px;
         float: right;
     }
 }
@@ -115,6 +112,7 @@
     .dialog-text {
         text-align: center;
         font-size: 22px;
+        font-weight: 600;
     }
     .dialog-buttons {
         display: flex;
@@ -132,9 +130,6 @@
 
 ::ng-deep {
     .p-dialog {
-        display: flex;
-        flex-wrap: wrap;
-        background-color: rgb(230, 230, 230);
         .p-dialog-content {
             max-height: 85vh;
             overflow: auto;

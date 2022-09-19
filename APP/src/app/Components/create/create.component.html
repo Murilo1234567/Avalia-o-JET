@@ -1,68 +1,68 @@
 <div class="insert-card">
-    <form [formGroup]="productForm">
-      <div class="full-form">
-        <div class="informations">
-          <h2>Informações Principais</h2>
-          <div class="form-group switch">
-            <label for="name" class="form-label">Status</label>
-            <p-inputSwitch formControlName="status" binary></p-inputSwitch>
+  <form [formGroup]="productForm">
+    <div class="full-form">
+      <div class="informations">
+        <h2>Informações Principais</h2>
+        <div class="form-group switch">
+          <label style="margin-right: 10px;" for="name" class="form-label">Status</label>
+          <p-inputSwitch formControlName="status" binary></p-inputSwitch>
+        </div>
+        <div class="form-group">
+          <label for="name" class="form-label">Nome do produto</label>
+          <input id="name" class="form-control" type="text" formControlName="name" maxlength="150">
+        </div>
+        <div class="form-group big">
+          <div class="form-group small">
+            <label for="stock" class="form-label">Estoque</label>
+            <input id="stock" class="form-control" type="number" formControlName="stock" [min]="0" [max]="100">
           </div>
-          <div class="form-group">
-            <label for="name" class="form-label">Nome do produto</label>
-            <input id="name" class="form-control" type="text" formControlName="name" maxlength="150">
+          <div class="form-group small">
+            <label for="price" class="form-label">Preço</label>
+            <input id="price" class="form-control" type="number" formControlName="price" [step]="0.25" [min]="0" [max]="50">
           </div>
-          <div class="form-group big">
-            <div class="form-group small">
-              <label for="stock" class="form-label">Estoque</label>
-              <input id="stock" class="form-control" type="number" formControlName="stock" [min]="0" [max]="100">
-            </div>
-            <div class="form-group small">
-              <label for="price" class="form-label">Preço</label>
-              <input id="price" class="form-control" type="number" formControlName="price" [step]="0.25" [min]="0" [max]="50">
-            </div>
-            <div class="form-group small">
-              <label for="new_price" class="form-label">Preço Promocional</label>
-              <input id="new_price" class="form-control" type="number" formControlName="new_price" [step]="0.25" [min]="0" [max]="50">
-            </div>
-          </div>
-          <h2>Informações Adicionais</h2>
-          <div class="form-group">
-            <label for="desc" class="form-label">Descrição do Produto</label>
-            <textarea id="desc" class="form-control area" (onchange)="productForm.get('desc')?.setValue(productForm.get('desc'))" formControlName="description"></textarea>
+          <div class="form-group small">
+            <label for="new_price" class="form-label">Preço Promocional</label>
+            <input id="new_price" class="form-control" type="number" formControlName="new_Price" [step]="0.25" [min]="0" [max]="50">
           </div>
         </div>
-        <div class="informations">
-          <h2>Imagem</h2>
-          <div class="form-group">
-            <label for="image" class="form-label">Imagem do Produto</label>
-            <div class="image-button" *ngIf="productForm.get('image')?.value != ''">
-              <img [src]="productForm.get('image')?.value">
-            </div>
-            <input placeholder="Put the url of the image" *ngIf="productForm.get('image')?.value == ''" id="image" class="form-control" type="text" [(ngModel)]="imageUrl" [ngModelOptions]="{standalone: true}">
-            <div class="buttons">
-              <button (click)="ChangeImageUrl(false)">Retirar URL</button>
-              <button class="select" (click)="ChangeImageUrl(true)">Selecionar URL</button>
-            </div>
+        <h2>Informações Adicionais</h2>
+        <div class="form-group">
+          <label for="desc" class="form-label">Descrição do Produto</label>
+          <textarea id="desc" class="form-control area" (onchange)="productForm.get('desc')?.setValue(productForm.get('desc'))" formControlName="description"></textarea>
+        </div>
+      </div>
+      <div class="informations">
+        <h2>Imagem</h2>
+        <div class="form-group">
+          <label for="image" class="form-label">Imagem do Produto</label>
+          <div class="image-button" *ngIf="productForm.get('image')?.value != ''">
+            <img [src]="productForm.get('image')?.value">
+          </div>
+          <input placeholder="Coloque a URL da imagem" *ngIf="productForm.get('image')?.value == ''" id="image" class="form-control" type="text" [(ngModel)]="imageUrl" [ngModelOptions]="{standalone: true}">
+          <div class="buttons">
+            <button (click)="ChangeImageUrl(false)">Retirar URL</button>
+            <button class="select" (click)="ChangeImageUrl(true)">Selecionar URL</button>
           </div>
         </div>
       </div>
-    </form>
-    <div class="end-buttons">
-      <button class="cancel" (click)="CancelCreate()">Cancelar Produto</button>
-      <button [routerLink]="'produtos'">Todos os Produtos</button>
-      <button class="select" (click)="InsertProduct()">Criar Produto</button>
     </div>
-    <span class="error" *ngIf="errorMessage">Preencha todos os<br> campos do formulário</span>
+  </form>
+  <div class="end-buttons">
+    <button class="cancel" (click)="CancelCreate()">Cancelar Produto</button>
+    <button [routerLink]="'produtos'">Todos os Produtos</button>
+    <button class="select" (click)="InsertProduct()">Criar Produto</button>
   </div>
+  <span class="error" *ngIf="errorMessage">Preencha todos os<br> campos do formulário</span>
+</div>
 
 <p-dialog [(visible)]="showDialog" [showHeader]="false">
-  <div class="confirmation-card">
-    <div class="dialog-text">
-      <span>Produto criado com sucesso!</span>
-    </div>
-    <div class="dialog-buttons">
-      <button class="cancel" (click)="showDialog = false">Criar outro Produto</button>
-      <button [routerLink]="'products'">Todos os Produtos</button>
-    </div>
+<div class="confirmation-card">
+  <div class="dialog-text">
+    <span>Produto criado com sucesso!</span>
   </div>
+  <div class="dialog-buttons">
+    <button class="cancel" (click)="showDialog = false">Criar outro Produto</button>
+    <button [routerLink]="'produtos'">Todos os Produtos</button>
+  </div>
+</div>
 </p-dialog>

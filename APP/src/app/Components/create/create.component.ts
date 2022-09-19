@@ -29,12 +29,12 @@ export class CreateComponent implements OnInit {
       { value: '', disabled: false }, Validators.compose([Validators.required])
     ),
     status: new UntypedFormControl(
-      { value: '', disabled: false }, Validators.compose([Validators.required])
+      { value: false, disabled: false }, Validators.compose([Validators.required])
     ),
     price: new UntypedFormControl(
       { value: '', disabled: false }, Validators.compose([Validators.required])
     ),
-    new_price: new UntypedFormControl(
+    new_Price: new UntypedFormControl(
       { value: '', disabled: false }, Validators.compose([Validators.required])
     )
   });
