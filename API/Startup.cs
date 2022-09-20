@@ -29,7 +29,7 @@ namespace Application
             service.AddControllers();
 
             /*-------------------------------- DBCONTEXT --------------------------------*/
-            string connectionString = "Server=localhost;Port=5432;User Id=postgres;Password=senha123;Database=postgres";
+            string connectionString = "Server=postgresbase.cwhuydgcy4ru.us-east-1.rds.amazonaws.com;Port=5432;User Id=mainUser;Password=Senha123;Database=postgresBase";
             service.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(connectionString));
 
             service.AddScoped<IProductRepository, ProductRepository>();
